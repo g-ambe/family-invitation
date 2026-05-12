@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useMotionTemplate, useScroll, useTransform } from 'framer-motion'
 import { invitation } from '../../data'
 import Container from '../Container'
 
@@ -7,11 +7,12 @@ const copyLines = ['両家のご縁を結ぶ、', '穏やかなひととき。']
 export default function Hero() {
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '10%'])
-  const blur = useTransform(scrollYProgress, [0, 1], [0, 2])
+  const blurAmount = useTransform(scrollYProgress, [0, 1], [0, 2])
+  const blurFilter = useMotionTemplate`blur(${blurAmount}px)`
 
   return (
     <section className="hero-frame relative min-h-screen overflow-hidden border-b border-gold/30">
-      <motion.div style={{ y, scale: 1.08, filter: blur.to((b) => `blur(${b}px)`) }} className="absolute inset-0">
+      <motion.div style={{ y, scale: 1.08, filter: blurFilter }} className="absolute inset-0">
         <img src={invitation.images.hero} alt="Invitation background" className="h-full w-full object-cover opacity-75" />
       </motion.div>
 
