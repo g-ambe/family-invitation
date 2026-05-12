@@ -6,21 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "preview": "vite preview"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
+    "lucide-react": "^1.14.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.36.3",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
-    "vite": "^7.1.7",
-    "wrangler": "^4.90.0"
+    "vite": "^7.1.7"
   }
 }

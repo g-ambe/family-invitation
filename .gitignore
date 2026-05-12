@@ -1,10 +1,7 @@
-node_modules
-dist
+node_modules/
+dist/
 .DS_Store
-
-# wrangler files
-.wrangler
-.dev.vars*
-!.dev.vars.example
-.env*
-!.env.example
+src/assets/images/*.jpg
+src/assets/images/*.jpeg
+src/assets/images/*.png
+src/assets/images/*.webp

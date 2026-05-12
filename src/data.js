@@ -10,4 +10,9 @@ export const invitation = {
   groomName: '安倍 郷基',
   brideFamily: '加藤家',
   brideName: '加藤 春花',
+  images: {
+    hero: '/images/hero.jpg',
+    couple: '/images/couple.jpg',
+    restaurant: '/images/restaurant.jpg',
+  },
 }

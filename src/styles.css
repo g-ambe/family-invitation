@@ -13,6 +13,6 @@ body {
   @apply m-0 bg-paper font-sans text-ink antialiased;
 }
 
-.section-shell {
-  @apply mx-auto w-full max-w-5xl px-5 sm:px-8;
+* {
+  @apply selection:bg-amber-100/80;
 }
