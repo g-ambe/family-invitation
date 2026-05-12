@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #1f1f1d;
+  background: #f7f5f2;
+}
+
+body {
+  @apply m-0 bg-paper font-sans text-ink antialiased;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-5xl px-5 sm:px-8;
+}
