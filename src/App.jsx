@@ -12,9 +12,11 @@ export default function App() {
     <div className="min-h-screen bg-paper">
       <Hero />
       <Countdown />
+      <div className="section-divider" />
       <Story />
       <Message />
       <Schedule />
+      <div className="section-divider" />
       <Information />
       <Access />
       <Footer />
