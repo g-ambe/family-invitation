@@ -140,9 +140,6 @@ useEffect(() => {
               rotate: [0, i % 2 === 0 ? 4 : -4],
               opacity: [0, 0.32, 0.24, 0],
             }}
-              rotate: [0, i % 2 === 0 ? 12 : -12],
-              opacity: [0, 0.32, 0.24, 0],
-            }}
             transition={{
               duration: randomDuration,
               repeat: Infinity,
