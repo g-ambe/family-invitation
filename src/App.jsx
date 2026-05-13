@@ -1,29 +1,32 @@
 import heroImage from "./assets/images/hero.jpg"
-import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 export default function App() {
-  const targetDate = new Date("2026-05-24T11:00:00")
-
-const [timeLeft, setTimeLeft] = useState({})
-
-useEffect(() => {
-  const timer = setInterval(() => {
-    const now = new Date()
-    const difference = targetDate - now
-
-    if (difference > 0) {
-      setTimeLeft({
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
+      const targetDate = new Date("2026-05-24T11:00:00")
+      
+      const [timeLeft, setTimeLeft] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
       })
-    }
-  }, 1000)
-
-  return () => clearInterval(timer)
-}, [])
+      
+      useEffect(() => {
+        const timer = setInterval(() => {
+          const now = new Date()
+          const difference = targetDate - now
+      
+          if (difference > 0) {
+            setTimeLeft({
+              days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+              hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+              minutes: Math.floor((difference / 1000 / 60) % 60),
+            })
+          }
+        }, 1000)
+      
+        return () => clearInterval(timer)
+      }, [])
   
   return (
     <main
