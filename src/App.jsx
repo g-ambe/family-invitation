@@ -85,6 +85,58 @@ export default function App() {
           }}
         />
 
+        {/* Corner Frame */}
+        <div
+          style={{
+            position: "absolute",
+            top: "28px",
+            left: "28px",
+            width: "80px",
+            height: "80px",
+            borderTop: "1px solid rgba(255,255,255,0.22)",
+            borderLeft: "1px solid rgba(255,255,255,0.22)",
+            zIndex: 1,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "28px",
+            right: "28px",
+            width: "80px",
+            height: "80px",
+            borderTop: "1px solid rgba(255,255,255,0.22)",
+            borderRight: "1px solid rgba(255,255,255,0.22)",
+            zIndex: 1,
+          }}
+        />
+        
+        <div
+          style={{
+            position: "absolute",
+            bottom: "28px",
+            left: "28px",
+            width: "80px",
+            height: "80px",
+            borderBottom: "1px solid rgba(255,255,255,0.22)",
+            borderLeft: "1px solid rgba(255,255,255,0.22)",
+            zIndex: 1,
+          }}
+        />
+        
+        <div
+          style={{
+            position: "absolute",
+            bottom: "28px",
+            right: "28px",
+            width: "80px",
+            height: "80px",
+            borderBottom: "1px solid rgba(255,255,255,0.22)",
+            borderRight: "1px solid rgba(255,255,255,0.22)",
+            zIndex: 1,
+          }}
+        />
+        
         {/* Hero Content */}
         <div
           style={{
