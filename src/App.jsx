@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 
 import heroImage from "./assets/images/hero.jpg"
 import leavesImage from "./assets/images/leaves.png"
-import coupleImage from "./assets/images/couple.jpeg"
+import coupleImage from "./assets/images/couple.jpg"
 
 export default function App() {
   const targetDate = new Date("2026-05-24T11:00:00")
@@ -51,8 +51,10 @@ export default function App() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          textAlign: "center",
+          textAlign: "left",
           padding: "clamp(24px, 5vw, 40px)",
+          paddingLeft: "clamp(28px, 8vw, 120px)",
+          paddingRight: "clamp(24px, 5vw, 40px)",
           backgroundImage: `
             linear-gradient(
               rgba(0, 0, 0, 0.40),
@@ -84,237 +86,241 @@ export default function App() {
         />
 
         {/* Hero Content */}
-        <p
-          style={{
-            letterSpacing: "0.3em",
-            color: "#f3d9a4",
-            marginBottom: "24px",
-            fontSize: "14px",
-            zIndex: 2,
-            position: "relative",
-          }}
-        >
-          FAMILY GATHERING
-        </p>
-
-        <h1
-          style={{
-            fontSize: "clamp(28px, 7vw, 56px)",
-            marginBottom: "24px",
-            fontWeight: "normal",
-            color: "white",
-            textShadow: "0 4px 20px rgba(0,0,0,0.25)",
-            zIndex: 2,
-            position: "relative",
-            lineHeight: 1.3,
-            whiteSpace: "nowrap",
-            letterSpacing: "0.04em",
-          }}
-        >
-          〜両家顔合わせのご案内〜
-        </h1>
-
-        <p
-          style={{
-            fontSize: "clamp(15px, 4vw, 18px)",
-            lineHeight: 1.8,
-            maxWidth: "600px",
-            color: "rgba(255,255,255,0.88)",
-            zIndex: 2,
-            position: "relative",
-          }}
-        >
-          ご縁を結ぶ、穏やかなひととき
-        </p>
-
-        {/* Countdown */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true }}
-          style={{
-            marginTop: "52px",
-            zIndex: 2,
-            position: "relative",
-            color: "white",
-            width: "min(520px, 90vw)",
-          }}
-        >
-          {/* Top Line */}
-          <div
-            style={{
-              height: "1px",
-              background: "rgba(255,255,255,0.28)",
-              marginBottom: "28px",
-            }}
-          />
-        
-          {/* Main Count */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "flex-end",
-              gap: "12px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "clamp(72px, 18vw, 140px)",
-                lineHeight: 0.9,
-                fontWeight: "200",
-                letterSpacing: "-0.04em",
-              }}
-            >
-              {String(timeLeft.days).padStart(2, "0")}
-            </span>
-        
-            <span
-              style={{
-                fontSize: "clamp(16px, 3vw, 22px)",
-                opacity: 0.82,
-                marginBottom: "12px",
-                letterSpacing: "0.12em",
-              }}
-            >
-              DAYS
-            </span>
-          </div>
-        
-          {/* Bottom */}
-          <div
-            style={{
-              marginTop: "24px",
-              display: "flex",
-              justifyContent: "center",
-              gap: "32px",
-              fontSize: "14px",
-              letterSpacing: "0.08em",
-              opacity: 0.82,
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  fontSize: "32px",
-                  marginBottom: "4px",
-                }}
-              >
-                {String(timeLeft.hours).padStart(2, "0")}
-              </div>
-              HOURS
-            </div>
-        
-            <div>
-              <div
-                style={{
-                  fontSize: "32px",
-                  marginBottom: "4px",
-                }}
-              >
-                {String(timeLeft.minutes).padStart(2, "0")}
-              </div>
-              MINUTES
-            </div>
-          </div>
-        
-          {/* Bottom Line */}
-          <div
-            style={{
-              height: "1px",
-              background: "rgba(255,255,255,0.28)",
-              marginTop: "28px",
-            }}
-          />
-        </motion.div>
-
-        {/* Couple Photo */}
-{/* Couple Photo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 24 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.4 }}
-          viewport={{ once: true }}
-          style={{
-            marginTop: "64px",
-            zIndex: 2,
-            position: "relative",
-            width: "min(360px, 82vw)",
-          }}
-        >
-          {/* Ambient Glow */}
-          <div
-            style={{
-              position: "absolute",
-              inset: "-40px",
-              background:
-                "radial-gradient(rgba(255,255,255,0.18), transparent 72%)",
-              filter: "blur(40px)",
-              zIndex: 1,
-            }}
-          />
-        
-          {/* Soft Background Blur */}
-          <div
-            style={{
-              position: "absolute",
-              inset: "-10px",
-              backdropFilter: "blur(18px)",
-              borderRadius: "48px",
-              background: "rgba(255,255,255,0.03)",
-              zIndex: 1,
-            }}
-          />
-        
-          {/* Main Image */}
-          <img
-          src={coupleImage}
-          alt="couple"
+        <div
           style={{
             width: "100%",
-            aspectRatio: "1 / 1",
-            objectFit: "cover",
-            objectPosition: "center top",
-            borderRadius: "42px",
-            position: "relative",
+            maxWidth: "1200px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
             zIndex: 2,
-            boxShadow: "0 24px 80px rgba(0,0,0,0.22)",
-            filter: "saturate(0.96) contrast(1.02)",
+            position: "relative",
           }}
-          />
-        
-          {/* Edge Fade */}
-          <div
+        >
+          <p
             style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: "42px",
-              background: `
-                linear-gradient(
-                  to top,
-                  rgba(0,0,0,0.18),
-                  transparent 36%
-                )
-              `,
-              zIndex: 3,
-              mixBlendMode: "soft-light",
+              letterSpacing: "0.3em",
+              color: "#f3d9a4",
+              marginBottom: "24px",
+              fontSize: "14px",
             }}
-          />
-        
-          {/* Outer Fade */}
-          <div
+          >
+            FAMILY GATHERING
+          </p>
+
+          <h1
             style={{
-              position: "absolute",
-              inset: "-2px",
-              borderRadius: "44px",
-              background:
-                "radial-gradient(circle at center, transparent 58%, rgba(245,245,244,0.75) 100%)",
-              zIndex: 4,
-              pointerEvents: "none",
+              fontSize: "clamp(22px, 5.6vw, 56px)",
+              marginBottom: "24px",
+              fontWeight: "normal",
+              color: "white",
+              textShadow: "0 4px 20px rgba(0,0,0,0.25)",
+              lineHeight: 1.3,
+              whiteSpace: "nowrap",
+              letterSpacing: "0.04em",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             }}
-          />
-        </motion.div>
+          >
+            〜両家顔合わせのご案内〜
+          </h1>
+
+          <p
+            style={{
+              fontSize: "clamp(15px, 4vw, 18px)",
+              lineHeight: 1.8,
+              maxWidth: "600px",
+              color: "rgba(255,255,255,0.88)",
+            }}
+          >
+            ご縁を結ぶ、穏やかなひととき
+          </p>
+
+          {/* Countdown */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2 }}
+            viewport={{ once: true }}
+            style={{
+              marginTop: "52px",
+              color: "white",
+              width: "min(520px, 90vw)",
+            }}
+          >
+            {/* Top Line */}
+            <div
+              style={{
+                height: "1px",
+                background: "rgba(255,255,255,0.28)",
+                marginBottom: "28px",
+              }}
+            />
+
+            {/* Main Count */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "flex-end",
+                gap: "12px",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "clamp(72px, 18vw, 140px)",
+                  lineHeight: 0.9,
+                  fontWeight: "200",
+                  letterSpacing: "-0.04em",
+                }}
+              >
+                {String(timeLeft.days).padStart(2, "0")}
+              </span>
+
+              <span
+                style={{
+                  fontSize: "clamp(16px, 3vw, 22px)",
+                  opacity: 0.82,
+                  marginBottom: "12px",
+                  letterSpacing: "0.12em",
+                }}
+              >
+                DAYS
+              </span>
+            </div>
+
+            {/* Bottom */}
+            <div
+              style={{
+                marginTop: "24px",
+                display: "flex",
+                justifyContent: "flex-start",
+                gap: "clamp(16px, 6vw, 32px)",
+                fontSize: "14px",
+                letterSpacing: "0.08em",
+                opacity: 0.82,
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    fontSize: "clamp(22px, 7vw, 32px)",
+                    marginBottom: "4px",
+                  }}
+                >
+                  {String(timeLeft.hours).padStart(2, "0")}
+                </div>
+                HOURS
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    fontSize: "clamp(22px, 7vw, 32px)",
+                    marginBottom: "4px",
+                  }}
+                >
+                  {String(timeLeft.minutes).padStart(2, "0")}
+                </div>
+                MINUTES
+              </div>
+            </div>
+
+            {/* Bottom Line */}
+            <div
+              style={{
+                height: "1px",
+                background: "rgba(255,255,255,0.28)",
+                marginTop: "28px",
+              }}
+            />
+          </motion.div>
+
+          {/* Couple Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 24 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.4 }}
+            viewport={{ once: true }}
+            style={{
+              marginTop: "64px",
+              position: "relative",
+              width: "min(420px, 86vw)",
+            }}
+          >
+            {/* Ambient Glow */}
+            <div
+              style={{
+                position: "absolute",
+                inset: "-40px",
+                background:
+                  "radial-gradient(rgba(255,255,255,0.18), transparent 72%)",
+                filter: "blur(40px)",
+                zIndex: 1,
+              }}
+            />
+
+            {/* Soft Background Blur */}
+            <div
+              style={{
+                position: "absolute",
+                inset: "-10px",
+                backdropFilter: "blur(18px)",
+                borderRadius: "48px",
+                background: "rgba(255,255,255,0.03)",
+                zIndex: 1,
+              }}
+            />
+
+            {/* Main Image */}
+            <img
+              src={coupleImage}
+              alt="couple"
+              style={{
+                width: "100%",
+                aspectRatio: "1 / 1",
+                objectFit: "cover",
+                objectPosition: "center top",
+                borderRadius: "42px",
+                position: "relative",
+                zIndex: 2,
+                boxShadow: "0 24px 80px rgba(0,0,0,0.22)",
+                filter: "saturate(0.96) contrast(1.02)",
+              }}
+            />
+
+            {/* Edge Fade */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                borderRadius: "42px",
+                background: `
+                  linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.18),
+                    transparent 36%
+                  )
+                `,
+                zIndex: 3,
+                mixBlendMode: "soft-light",
+              }}
+            />
+
+            {/* Outer Fade */}
+            <div
+              style={{
+                position: "absolute",
+                inset: "-2px",
+                borderRadius: "44px",
+                background:
+                  "radial-gradient(circle at center, transparent 58%, rgba(245,245,244,0.75) 100%)",
+                zIndex: 4,
+                pointerEvents: "none",
+              }}
+            />
+          </motion.div>
+        </div>
       </motion.section>
 
       {/* Information */}
@@ -364,22 +370,171 @@ export default function App() {
             {/* Left */}
             <div
               style={{
-                lineHeight: 2.4,
-                color: "#44403c",
-                fontSize: "17px",
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                height: "100%",
+                width: "100%",
+                maxWidth: "620px",
+                margin: "0 auto",
               }}
             >
-              <p>日時：2026年5月24日（日）11:00</p>
-              <br />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                {/* DATE */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "100px 16px 1fr",
+                    gap: "8px",
+                    alignItems: "start",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#b8924f",
+                      letterSpacing: "0.18em",
+                      fontSize: "14px",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    DATE
+                  </div>
 
-              <p>会場：THE KAWABUN NAGOYA</p>
-              <p>住所：愛知県名古屋市中区丸の内2-12-30</p>
-              <p>TEL：052-222-0020</p>
+                  <div
+                    style={{
+                      color: "#b8924f",
+                    }}
+                  >
+                    ：
+                  </div>
+
+                  <div
+                    style={{
+                      lineHeight: 1.8,
+                      fontSize: "clamp(15px, 2vw, 18px)",
+                    }}
+                  >
+                    2026年5月24日（日）11:00
+                  </div>
+                </div>
+
+                {/* PLACE */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "100px 16px 1fr",
+                    gap: "8px",
+                    alignItems: "start",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#b8924f",
+                      letterSpacing: "0.18em",
+                      fontSize: "14px",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    PLACE
+                  </div>
+
+                  <div
+                    style={{
+                      color: "#b8924f",
+                    }}
+                  >
+                    ：
+                  </div>
+
+                  <div
+                    style={{
+                      lineHeight: 1.8,
+                      fontSize: "clamp(15px, 2vw, 18px)",
+                    }}
+                  >
+                    THE KAWABUN NAGOYA
+                  </div>
+                </div>
+
+                {/* ADDRESS */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "100px 16px 1fr",
+                    gap: "8px",
+                    alignItems: "start",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#b8924f",
+                      letterSpacing: "0.18em",
+                      fontSize: "14px",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    ADDRESS
+                  </div>
+
+                  <div
+                    style={{
+                      color: "#b8924f",
+                    }}
+                  >
+                    ：
+                  </div>
+
+                  <div
+                    style={{
+                      lineHeight: 1.8,
+                      fontSize: "clamp(15px, 2vw, 18px)",
+                      wordBreak: "keep-all",
+                    }}
+                  >
+                    愛知県名古屋市中区丸の内2-12-30
+                  </div>
+                </div>
+
+                {/* TEL */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "100px 16px 1fr",
+                    gap: "8px",
+                    alignItems: "start",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#b8924f",
+                      letterSpacing: "0.18em",
+                      fontSize: "14px",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    TEL
+                  </div>
+
+                  <div
+                    style={{
+                      color: "#b8924f",
+                    }}
+                  >
+                    ：
+                  </div>
+
+                  <div
+                    style={{
+                      lineHeight: 1.8,
+                      fontSize: "clamp(15px, 2vw, 18px)",
+                    }}
+                  >
+                    052-222-0020
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right */}
