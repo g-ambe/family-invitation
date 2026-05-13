@@ -127,30 +127,35 @@ useEffect(() => {
           zIndex: 2,
         }}
       >
-        {[...Array(8)].map((_, i) => (
-          <motion.div
+          {[...Array(5)].map((_, i) => {
+            const randomDelay = Math.random() * 12
+            const randomDuration = 16 + Math.random() * 12
+            const randomLeft = Math.random() * 100
+          
+            return (
+              <motion.div
             key={i}
             animate={{
               y: ["-10vh", "110vh"],
-              x: [
-                `${i * 12}%`,
-                `${i * 12 + tilt * 0.4}%`,
-              ],
+              rotate: [0, i % 2 === 0 ? 4 : -4],
+              opacity: [0, 0.32, 0.24, 0],
+            }}
               rotate: [0, i % 2 === 0 ? 12 : -12],
-              opacity: [0, 0.55, 0.42, 0],
+              opacity: [0, 0.32, 0.24, 0],
             }}
             transition={{
-              duration: 18 + i * 2,
+              duration: randomDuration,
               repeat: Infinity,
               ease: "linear",
-              delay: i * 2,
+              delay: randomDelay,
             }}
             style={{
               position: "absolute",
               top: "-10%",
-              left: `${i * 12}%`,
-              width: `${28 + i * 4}px`,
-              height: `${42 + i * 5}px`,
+              left: `${randomLeft}%`,
+              width: `${16 + i * 3}px`,
+              transform: `translateX(${tilt * 1.8}px) rotate(45deg)`,
+              height: `${24 + i * 4}px`,
               borderRadius: "50% 0 50% 0",
               boxShadow: "0 4px 18px rgba(126,169,116,0.18)",
               transform: "rotate(45deg)",
