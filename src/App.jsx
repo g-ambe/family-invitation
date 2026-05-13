@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import heroImage from "./assets/images/hero.jpg"
 import leavesImage from "./assets/images/leaves.png"
 import coupleImage from "./assets/images/couple3.jpg"
-//import coupleImage from "./assets/images/couple.jpeg"
 
 export default function App() {
   const targetDate = new Date("2026-05-24T11:00:00")
