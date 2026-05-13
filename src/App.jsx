@@ -486,18 +486,17 @@ export default function App() {
                     ：
                   </div>
 
-                  <div
-                    style={{
-                      lineHeight: 1.8,
-                      fontSize: "clamp(10px, 2.8vw, 18px)",
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      letterSpacing: "-0.02em",
-                    }}
-                  >
-                    愛知県名古屋市中区丸の内2-12-30
-                  </div>
+                <div
+                  style={{
+                    lineHeight: 1.9,
+                    fontSize: "clamp(15px, 2vw, 18px)",
+                    wordBreak: "keep-all",
+                  }}
+                >
+                  愛知県名古屋市中区丸の内
+                  <br />
+                  2-12-30
+                </div>
                 </div>
 
                 {/* TEL */}
