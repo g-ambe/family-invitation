@@ -40,21 +40,6 @@ export default function App() {
     >
       {/* Hero */}
       <motion.section
-      <img
-        src={leavesImage}
-        alt=""
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.18,
-          pointerEvents: "none",
-          mixBlendMode: "multiply",
-        }}
-      />
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
@@ -79,6 +64,21 @@ export default function App() {
           overflow: "hidden",
         }}
       >
+       <img
+        src={leavesImage}
+        alt=""
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.18,
+          pointerEvents: "none",
+          mixBlendMode: "multiply",
+        }}
+      />
         <p
           style={{
             letterSpacing: "0.3em",
