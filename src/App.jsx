@@ -269,18 +269,19 @@ export default function App() {
         
           {/* Main Image */}
           <img
-            src={coupleImage}
-            alt="couple"
-            style={{
-              width: "100%",
-              aspectRatio: "3 / 4",
-              objectFit: "cover",
-              borderRadius: "42px",
-              position: "relative",
-              zIndex: 2,
-              boxShadow: "0 24px 80px rgba(0,0,0,0.22)",
-              filter: "saturate(0.96) contrast(1.02)",
-            }}
+          src={coupleImage}
+          alt="couple"
+          style={{
+            width: "100%",
+            aspectRatio: "1 / 1",
+            objectFit: "cover",
+            objectPosition: "center top",
+            borderRadius: "42px",
+            position: "relative",
+            zIndex: 2,
+            boxShadow: "0 24px 80px rgba(0,0,0,0.22)",
+            filter: "saturate(0.96) contrast(1.02)",
+          }}
           />
         
           {/* Edge Fade */}
