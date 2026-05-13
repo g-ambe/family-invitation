@@ -488,8 +488,10 @@ export default function App() {
                   <div
                     style={{
                       lineHeight: 1.8,
-                      fontSize: "clamp(15px, 2vw, 18px)",
-                      wordBreak: "keep-all",
+                      fontSize: "clamp(10px, 2.8vw, 18px)",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
                     }}
                   >
                     愛知県名古屋市中区丸の内2-12-30
