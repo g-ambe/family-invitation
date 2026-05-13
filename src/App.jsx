@@ -1,25 +1,16 @@
-import Access from './components/sections/Access'
-import Countdown from './components/sections/Countdown'
-import Footer from './components/sections/Footer'
-import Hero from './components/sections/Hero'
-import Information from './components/sections/Information'
-import Message from './components/sections/Message'
-import Schedule from './components/sections/Schedule'
-import Story from './components/sections/Story'
-
 export default function App() {
   return (
-    <div className="min-h-screen bg-paper">
-      <Hero />
-      <Countdown />
-      <div className="section-divider" />
-      <Story />
-      <Message />
-      <Schedule />
-      <div className="section-divider" />
-      <Information />
-      <Access />
-      <Footer />
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#f5f5f4",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "32px",
+      }}
+    >
+      TEST
     </div>
   )
 }
