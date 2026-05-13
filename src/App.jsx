@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
-import heroImage from "./assets/images/hero.jpg"
+import heroImage from "./assets/images/hero.jpeg"
 import leavesImage from "./assets/images/leaves.png"
 import coupleImage from "./assets/images/couple.jpg"
 
