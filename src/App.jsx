@@ -99,17 +99,19 @@ export default function App() {
 
         <h1
           style={{
-            fontSize: "clamp(36px, 8vw, 56px)",
+            fontSize: "clamp(28px, 7vw, 56px)",
             marginBottom: "24px",
             fontWeight: "normal",
             color: "white",
             textShadow: "0 4px 20px rgba(0,0,0,0.25)",
             zIndex: 2,
             position: "relative",
-            lineHeight: 1.4,
+            lineHeight: 1.3,
+            whiteSpace: "nowrap",
+            letterSpacing: "0.04em",
           }}
         >
-          両家顔合わせのご案内
+          〜両家顔合わせのご案内〜
         </h1>
 
         <p
@@ -126,24 +128,106 @@ export default function App() {
         </p>
 
         {/* Countdown */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
           style={{
-            marginTop: "40px",
-            padding: "20px 32px",
-            border: "1px solid rgba(255,255,255,0.3)",
-            borderRadius: "999px",
-            backdropFilter: "blur(10px)",
-            color: "white",
-            background: "rgba(255,255,255,0.08)",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+            marginTop: "52px",
             zIndex: 2,
             position: "relative",
-            fontSize: "clamp(14px, 3vw, 16px)",
+            color: "white",
+            width: "min(520px, 90vw)",
           }}
         >
-          あと {timeLeft.days} 日 {timeLeft.hours} 時間{" "}
-          {timeLeft.minutes} 分
-        </div>
+          {/* Top Line */}
+          <div
+            style={{
+              height: "1px",
+              background: "rgba(255,255,255,0.28)",
+              marginBottom: "28px",
+            }}
+          />
+        
+          {/* Main Count */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              gap: "12px",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "clamp(72px, 18vw, 140px)",
+                lineHeight: 0.9,
+                fontWeight: "200",
+                letterSpacing: "-0.04em",
+              }}
+            >
+              {String(timeLeft.days).padStart(2, "0")}
+            </span>
+        
+            <span
+              style={{
+                fontSize: "clamp(16px, 3vw, 22px)",
+                opacity: 0.82,
+                marginBottom: "12px",
+                letterSpacing: "0.12em",
+              }}
+            >
+              DAYS
+            </span>
+          </div>
+        
+          {/* Bottom */}
+          <div
+            style={{
+              marginTop: "24px",
+              display: "flex",
+              justifyContent: "center",
+              gap: "32px",
+              fontSize: "14px",
+              letterSpacing: "0.08em",
+              opacity: 0.82,
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  fontSize: "32px",
+                  marginBottom: "4px",
+                }}
+              >
+                {String(timeLeft.hours).padStart(2, "0")}
+              </div>
+              HOURS
+            </div>
+        
+            <div>
+              <div
+                style={{
+                  fontSize: "32px",
+                  marginBottom: "4px",
+                }}
+              >
+                {String(timeLeft.minutes).padStart(2, "0")}
+              </div>
+              MINUTES
+            </div>
+          </div>
+        
+          {/* Bottom Line */}
+          <div
+            style={{
+              height: "1px",
+              background: "rgba(255,255,255,0.28)",
+              marginTop: "28px",
+            }}
+          />
+        </motion.div>
 
         {/* Couple Photo */}
 {/* Couple Photo */}
