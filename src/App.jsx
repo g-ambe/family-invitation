@@ -51,7 +51,7 @@ export default function App() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          textAlign: "left",
+          textAlign: "center",
           padding: "clamp(24px, 5vw, 40px)",
           paddingLeft: "clamp(28px, 8vw, 120px)",
           paddingRight: "clamp(24px, 5vw, 40px)",
@@ -92,9 +92,8 @@ export default function App() {
             maxWidth: "1200px",
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
-            zIndex: 2,
-            position: "relative",
+            alignItems: "center",
+            textAlign: "center",
           }}
         >
           <p
