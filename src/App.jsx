@@ -254,10 +254,15 @@ export default function App() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.4 }}
             viewport={{ once: true }}
-            style={{
+           style={{
               marginTop: "64px",
               position: "relative",
               width: "min(420px, 86vw)",
+              transform:
+                window.innerWidth < 768
+                  ? "scale(1.08)"
+                  : "scale(1)",
+              transformOrigin: "center",
             }}
           >
             {/* Ambient Glow */}
@@ -293,10 +298,6 @@ export default function App() {
                 aspectRatio: "1 / 1",
                 objectFit: "cover",
                 objectPosition: "center 18%",
-                transform:       
-                  window.innerWidth < 768
-                    ? "scale(1.12)"
-                    : "scale(1.02)",
                 borderRadius: "42px",
                 position: "relative",
                 zIndex: 2,
