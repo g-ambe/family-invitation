@@ -293,7 +293,10 @@ export default function App() {
                 aspectRatio: "1 / 1",
                 objectFit: "cover",
                 objectPosition: "center 18%",
-                transform: "scale(1.08)",
+                transform:       
+                  window.innerWidth < 768
+                    ? "scale(1.12)"
+                    : "scale(1.02)",
                 borderRadius: "42px",
                 position: "relative",
                 zIndex: 2,
