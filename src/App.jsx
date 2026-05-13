@@ -84,6 +84,17 @@ export default function App() {
             mixBlendMode: "multiply",
           }}
         />
+
+        {/* Soft Light */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(circle at 50% 20%, rgba(255,255,255,0.10), transparent 55%)",
+            pointerEvents: "none",
+          }}
+        />
         
         {/* Hero Content */}
         <div
@@ -321,6 +332,7 @@ export default function App() {
             />
           </motion.div>
         </div>
+
       </motion.section>
 
       {/* Information */}
