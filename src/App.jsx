@@ -1,34 +1,35 @@
-import heroImage from "./assets/images/hero.jpg"
-import leavesImage from "./assets/images/leaves.png"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
+import heroImage from "./assets/images/hero.jpg"
+import leavesImage from "./assets/images/leaves.png"
+
 export default function App() {
-      const targetDate = new Date("2026-05-24T11:00:00")
-      
-      const [timeLeft, setTimeLeft] = useState({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-      })
-      
-      useEffect(() => {
-        const timer = setInterval(() => {
-          const now = new Date()
-          const difference = targetDate - now
-      
-          if (difference > 0) {
-            setTimeLeft({
-              days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-              hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-              minutes: Math.floor((difference / 1000 / 60) % 60),
-            })
-          }
-        }, 1000)
-      
-        return () => clearInterval(timer)
-      }, [])
-  
+  const targetDate = new Date("2026-05-24T11:00:00")
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+  })
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date()
+      const difference = targetDate - now
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+        })
+      }
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <main
       style={{
@@ -53,8 +54,8 @@ export default function App() {
           padding: "40px",
           backgroundImage: `
             linear-gradient(
-              rgba(0,0,0,0.35),
-              rgba(0,0,0,0.25)
+              rgba(0, 0, 0, 0.40),
+              rgba(0, 0, 0, 0.28)
             ),
             url(${heroImage})
           `,
@@ -64,27 +65,32 @@ export default function App() {
           overflow: "hidden",
         }}
       >
-       <img
-        src={leavesImage}
-        alt=""
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.18,
-          pointerEvents: "none",
-          mixBlendMode: "multiply",
-        }}
-      />
+        {/* Botanical overlay */}
+        <img
+          src={leavesImage}
+          alt=""
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.12,
+            pointerEvents: "none",
+            mixBlendMode: "multiply",
+          }}
+        />
+
+        {/* Content */}
         <p
           style={{
             letterSpacing: "0.3em",
-            color: "#a16207",
+            color: "#f3d9a4",
             marginBottom: "24px",
             fontSize: "14px",
+            zIndex: 2,
+            position: "relative",
           }}
         >
           FAMILY GATHERING
@@ -92,25 +98,32 @@ export default function App() {
 
         <h1
           style={{
-            fontSize: "48px",
+            fontSize: "56px",
             marginBottom: "24px",
             fontWeight: "normal",
+            color: "white",
+            textShadow: "0 4px 20px rgba(0,0,0,0.25)",
+            zIndex: 2,
+            position: "relative",
           }}
         >
           両家顔合わせのご案内
         </h1>
-        
 
         <p
           style={{
             fontSize: "18px",
             lineHeight: 1.8,
             maxWidth: "600px",
-            color: "white",
+            color: "rgba(255,255,255,0.88)",
+            zIndex: 2,
+            position: "relative",
           }}
         >
           ご縁を結ぶ、穏やかなひととき
         </p>
+
+        {/* Countdown */}
         <div
           style={{
             marginTop: "40px",
@@ -120,45 +133,57 @@ export default function App() {
             backdropFilter: "blur(10px)",
             color: "white",
             background: "rgba(255,255,255,0.08)",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+            zIndex: 2,
+            position: "relative",
           }}
         >
           あと {timeLeft.days} 日 {timeLeft.hours} 時間{" "}
           {timeLeft.minutes} 分
         </div>
-        
       </motion.section>
 
-      {/* Info */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          style={{
-            maxWidth: "900px",
-            margin: "0 auto",
-            padding: "80px 24px",
-          }}
-        >
+      {/* Information */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        style={{
+          maxWidth: "900px",
+          margin: "0 auto",
+          padding: "80px 24px",
+        }}
+      >
         <div
           style={{
-            background: "white",
-            borderRadius: "24px",
-            padding: "40px",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+            background: "rgba(255,255,255,0.82)",
+            borderRadius: "32px",
+            padding: "48px",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.06)",
+            backdropFilter: "blur(12px)",
+            border: "1px solid rgba(255,255,255,0.5)",
           }}
         >
           <h2
             style={{
-              fontSize: "28px",
-              marginBottom: "32px",
-              color: "#a16207",
+              fontSize: "30px",
+              marginBottom: "40px",
+              color: "#b8924f",
+              fontWeight: "normal",
+              letterSpacing: "0.08em",
             }}
           >
             Information
           </h2>
 
-          <div style={{ lineHeight: 2 }}>
+          <div
+            style={{
+              lineHeight: 2.4,
+              color: "#44403c",
+              fontSize: "17px",
+            }}
+          >
             <p>日時：2026年5月24日（日）11:00</p>
             <p>人数：6名</p>
 
