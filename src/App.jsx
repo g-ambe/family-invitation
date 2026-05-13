@@ -492,6 +492,7 @@ export default function App() {
                       whiteSpace: "nowrap",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
+                      letterSpacing: "-0.02em",
                     }}
                   >
                     愛知県名古屋市中区丸の内2-12-30
