@@ -1,3 +1,5 @@
+import heroImage from "./assets/images/hero.jpg"
+
 export default function App() {
   return (
     <main
@@ -18,6 +20,9 @@ export default function App() {
           justifyContent: "center",
           textAlign: "center",
           padding: "40px",
+          backgroundImage: `url(${heroImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <p
