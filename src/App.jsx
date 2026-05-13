@@ -55,7 +55,7 @@ export default function App() {
           padding: "clamp(24px, 5vw, 40px)",
           paddingLeft: "clamp(28px, 8vw, 120px)",
           paddingRight: "clamp(24px, 5vw, 40px)",
-          backgroundImage: `
+          /*backgroundImage: `
             linear-gradient(
               rgba(0, 0, 0, 0.40),
               rgba(0, 0, 0, 0.28)
@@ -63,11 +63,36 @@ export default function App() {
             url(${heroImage})
           `,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center",*/
           position: "relative",
           overflow: "hidden",
         }}
       >
+        {/* Hero Background */}
+        <motion.div
+          animate={{
+            scale: [1, 1.06],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `
+              linear-gradient(
+                rgba(0, 0, 0, 0.40),
+                rgba(0, 0, 0, 0.28)
+              ),
+              url(${heroImage})
+            `,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
         {/* Botanical Overlay */}
         <img
           src={leavesImage}
@@ -337,9 +362,16 @@ export default function App() {
 
       {/* Information */}
       <motion.section
-        initial={{ opacity: 0, y: 30 }}
+        /*initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1 }}*/
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 1.6,
+          ease: "easeOut",
+        }}
+        
         viewport={{ once: true }}
         style={{
           maxWidth: "1200px",
