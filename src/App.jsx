@@ -346,6 +346,7 @@ export default function App() {
               color: "#b8924f",
               fontWeight: "normal",
               letterSpacing: "0.08em",
+              textAlign: "center",
             }}
           >
             Information
@@ -366,12 +367,17 @@ export default function App() {
                 lineHeight: 2.4,
                 color: "#44403c",
                 fontSize: "17px",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                height: "100%",
               }}
             >
               <p>日時：2026年5月24日（日）11:00</p>
               <br />
 
-              <p>店名：：THE KAWABUN NAGOYA</p>
+              <p>会場：：THE KAWABUN NAGOYA</p>
               <p>住所：愛知県名古屋市中区丸の内2-12-30</p>
               <p>TEL：052-222-0020</p>
             </div>
