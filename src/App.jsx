@@ -145,6 +145,7 @@ export default function App() {
               marginTop: "52px",
               color: "white",
               width: "min(520px, 90vw)",
+              alignSelf: "center",
             }}
           >
             {/* Top Line */}
@@ -160,7 +161,7 @@ export default function App() {
             <div
               style={{
                 display: "flex",
-                justifyContent: "flex-start",
+                justifyContent: "center",
                 alignItems: "flex-end",
                 gap: "12px",
               }}
@@ -193,7 +194,7 @@ export default function App() {
               style={{
                 marginTop: "24px",
                 display: "flex",
-                justifyContent: "flex-start",
+                justifyContent: "center",
                 gap: "clamp(16px, 6vw, 32px)",
                 fontSize: "14px",
                 letterSpacing: "0.08em",
