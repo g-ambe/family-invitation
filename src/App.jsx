@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 
 import heroImage from "./assets/images/hero.jpg"
 import leavesImage from "./assets/images/leaves.png"
+import coupleImage from "./assets/images/couple.jpg"
 
 export default function App() {
   const targetDate = new Date("2026-05-24T11:00:00")
@@ -45,13 +46,13 @@ export default function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
         style={{
-          minHeight: "100vh",
+          minHeight: "100svh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "40px",
+          padding: "clamp(24px, 5vw, 40px)",
           backgroundImage: `
             linear-gradient(
               rgba(0, 0, 0, 0.40),
@@ -65,7 +66,7 @@ export default function App() {
           overflow: "hidden",
         }}
       >
-        {/* Botanical overlay */}
+        {/* Botanical Overlay */}
         <img
           src={leavesImage}
           alt=""
@@ -82,7 +83,7 @@ export default function App() {
           }}
         />
 
-        {/* Content */}
+        {/* Hero Content */}
         <p
           style={{
             letterSpacing: "0.3em",
@@ -98,13 +99,14 @@ export default function App() {
 
         <h1
           style={{
-            fontSize: "56px",
+            fontSize: "clamp(36px, 8vw, 56px)",
             marginBottom: "24px",
             fontWeight: "normal",
             color: "white",
             textShadow: "0 4px 20px rgba(0,0,0,0.25)",
             zIndex: 2,
             position: "relative",
+            lineHeight: 1.4,
           }}
         >
           両家顔合わせのご案内
@@ -112,7 +114,7 @@ export default function App() {
 
         <p
           style={{
-            fontSize: "18px",
+            fontSize: "clamp(15px, 4vw, 18px)",
             lineHeight: 1.8,
             maxWidth: "600px",
             color: "rgba(255,255,255,0.88)",
@@ -136,10 +138,33 @@ export default function App() {
             boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
             zIndex: 2,
             position: "relative",
+            fontSize: "clamp(14px, 3vw, 16px)",
           }}
         >
           あと {timeLeft.days} 日 {timeLeft.hours} 時間{" "}
           {timeLeft.minutes} 分
+        </div>
+
+        {/* Couple Image */}
+        <div
+          style={{
+            marginTop: "48px",
+            zIndex: 2,
+            position: "relative",
+          }}
+        >
+          <img
+            src={coupleImage}
+            alt="couple"
+            style={{
+              width: "min(340px, 80vw)",
+              height: "420px",
+              objectFit: "cover",
+              borderRadius: "28px",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.25)",
+              border: "1px solid rgba(255,255,255,0.25)",
+            }}
+          />
         </div>
       </motion.section>
 
@@ -150,7 +175,7 @@ export default function App() {
         transition={{ duration: 1 }}
         viewport={{ once: true }}
         style={{
-          maxWidth: "900px",
+          maxWidth: "1200px",
           margin: "0 auto",
           padding: "80px 24px",
         }}
@@ -159,7 +184,7 @@ export default function App() {
           style={{
             background: "rgba(255,255,255,0.82)",
             borderRadius: "32px",
-            padding: "48px",
+            padding: "clamp(24px, 6vw, 48px)",
             boxShadow: "0 20px 60px rgba(0,0,0,0.06)",
             backdropFilter: "blur(12px)",
             border: "1px solid rgba(255,255,255,0.5)",
@@ -179,19 +204,53 @@ export default function App() {
 
           <div
             style={{
-              lineHeight: 2.4,
-              color: "#44403c",
-              fontSize: "17px",
+              display: "grid",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "32px",
+              alignItems: "start",
             }}
           >
-            <p>日時：2026年5月24日（日）11:00</p>
-            <p>人数：6名</p>
+            {/* Left */}
+            <div
+              style={{
+                lineHeight: 2.4,
+                color: "#44403c",
+                fontSize: "17px",
+              }}
+            >
+              <p>日時：2026年5月24日（日）11:00</p>
+              <p>人数：6名</p>
 
-            <br />
+              <br />
 
-            <p>THE KAWABUN NAGOYA</p>
-            <p>愛知県名古屋市中区丸の内2-12-30</p>
-            <p>TEL：052-222-0020</p>
+              <p>THE KAWABUN NAGOYA</p>
+              <p>愛知県名古屋市中区丸の内2-12-30</p>
+              <p>TEL：052-222-0020</p>
+            </div>
+
+            {/* Right */}
+            <div
+              style={{
+                borderRadius: "24px",
+                overflow: "hidden",
+                minHeight: "320px",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+              }}
+            >
+              <iframe
+                title="map"
+                src="https://www.google.com/maps?q=THE+KAWABUN+NAGOYA&output=embed"
+                width="100%"
+                height="320"
+                style={{
+                  border: 0,
+                }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
       </motion.section>
