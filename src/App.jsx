@@ -24,7 +24,13 @@ export default function App() {
           justifyContent: "center",
           textAlign: "center",
           padding: "40px",
-          backgroundImage: `url(${heroImage})`,
+          backgroundImage: `
+            linear-gradient(
+              rgba(0,0,0,0.35),
+              rgba(0,0,0,0.25)
+            ),
+            url(${heroImage})
+          `,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -55,7 +61,7 @@ export default function App() {
             fontSize: "18px",
             lineHeight: 1.8,
             maxWidth: "600px",
-            color: "#57534e",
+            color: "white",
           }}
         >
           ご縁を結ぶ、穏やかなひととき
@@ -63,13 +69,17 @@ export default function App() {
       </motion.section>
 
       {/* Info */}
-      <section
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-          padding: "80px 24px",
-        }}
-      >
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          style={{
+            maxWidth: "900px",
+            margin: "0 auto",
+            padding: "80px 24px",
+          }}
+        >
         <div
           style={{
             background: "white",
@@ -99,7 +109,7 @@ export default function App() {
             <p>TEL：052-222-0020</p>
           </div>
         </div>
-      </section>
+      </motion.section>
     </main>
   )
 }
