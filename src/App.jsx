@@ -377,7 +377,7 @@ export default function App() {
               <p>日時：2026年5月24日（日）11:00</p>
               <br />
 
-              <p>会場：：THE KAWABUN NAGOYA</p>
+              <p>会場：THE KAWABUN NAGOYA</p>
               <p>住所：愛知県名古屋市中区丸の内2-12-30</p>
               <p>TEL：052-222-0020</p>
             </div>
