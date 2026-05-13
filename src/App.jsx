@@ -117,65 +117,71 @@ useEffect(() => {
           }}
         />
         
-      {/* Floating Leaves */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          overflow: "hidden",
-          pointerEvents: "none",
-          zIndex: 2,
-        }}
-      >
-        {[...Array(5)].map((_, i) => {
-          const randomDelay = Math.random() * 20
-          const randomDuration = 38 + Math.random() * 18
-          const randomLeft = Math.random() * 100
-          const randomRotate = Math.random() * 10 - 5
-      
-          return (
-            <motion.div
-              key={i}
-              initial={{
-                y: "-12vh",
-                opacity: 0,
-              }}
-              animate={{
-                y: "112vh",
-                opacity: [0, 0.22, 0.22, 0.12],
-                rotate: [
-                  randomRotate,
-                  randomRotate + 4,
-                  randomRotate - 3,
-                ],
-              }}
-              transition={{
-                duration: randomDuration,
-                repeat: Infinity,
-                ease: "linear",
-                delay: randomDelay,
-              }}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: `${randomLeft}%`,
-                width: `${12 + i * 2}px`,
-                height: `${18 + i * 3}px`,
-                borderRadius: "50% 0 50% 0",
-                background:
-                  "linear-gradient(135deg, rgba(156,196,145,0.52), rgba(202,224,190,0.16))",
-                boxShadow:
-                  "0 4px 10px rgba(126,169,116,0.10)",
-                filter: "blur(0.4px)",
-                transform: `
-                  translateX(${tilt * 1.2}px)
-                  rotate(45deg)
-                `,
-              }}
-            />
-          )
-        })}
-      </div>
+        {/* Floating Leaves */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            overflow: "hidden",
+            pointerEvents: "none",
+            zIndex: 2,
+          }}
+        >
+          {[...Array(5)].map((_, i) => {
+            const randomDuration = 42 + Math.random() * 16
+            const randomLeft = Math.random() * 100
+            const randomRotate = Math.random() * 8 - 4
+            const randomDrift = Math.random() * 40 - 20
+        
+            return (
+              <motion.div
+                key={i}
+                initial={{
+                  y: "-14vh",
+                  x: 0,
+                  opacity: 0,
+                }}
+                animate={{
+                  y: "115vh",
+                  x: [
+                    0,
+                    randomDrift * 0.3,
+                    randomDrift,
+                  ],
+                  opacity: [0, 0.24, 0.24, 0.08],
+                  rotate: [
+                    randomRotate,
+                    randomRotate + 3,
+                    randomRotate - 2,
+                  ],
+                }}
+                transition={{
+                  duration: randomDuration,
+                  repeat: Infinity,
+                  ease: "linear",
+                  delay: i * 8,
+                }}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: `${randomLeft}%`,
+                  width: `${12 + i * 2}px`,
+                  height: `${18 + i * 3}px`,
+                  borderRadius: "50% 0 50% 0",
+                  background:
+                    "linear-gradient(135deg, rgba(156,196,145,0.52), rgba(202,224,190,0.16))",
+                  boxShadow:
+                    "0 4px 10px rgba(126,169,116,0.10)",
+                  filter: "blur(0.4px)",
+                  transform: `
+                    translateX(${tilt * 1.2}px)
+                    rotate(45deg)
+                  `,
+                }}
+              />
+            )
+          })}
+        </div>
         
         {/* Hero Content */}
         <div
