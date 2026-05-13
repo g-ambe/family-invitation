@@ -146,31 +146,44 @@ export default function App() {
         </div>
 
         {/* Couple Photo */}
+{/* Couple Photo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 24 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.4 }}
           viewport={{ once: true }}
           style={{
-            marginTop: "56px",
+            marginTop: "64px",
             zIndex: 2,
             position: "relative",
-            width: "min(340px, 82vw)",
+            width: "min(360px, 82vw)",
           }}
         >
-          {/* Glow */}
+          {/* Ambient Glow */}
           <div
             style={{
               position: "absolute",
-              inset: "-20px",
+              inset: "-40px",
               background:
-                "radial-gradient(rgba(255,255,255,0.22), transparent 70%)",
-              filter: "blur(28px)",
+                "radial-gradient(rgba(255,255,255,0.18), transparent 72%)",
+              filter: "blur(40px)",
               zIndex: 1,
             }}
           />
-
-          {/* Image */}
+        
+          {/* Soft Background Blur */}
+          <div
+            style={{
+              position: "absolute",
+              inset: "-10px",
+              backdropFilter: "blur(18px)",
+              borderRadius: "48px",
+              background: "rgba(255,255,255,0.03)",
+              zIndex: 1,
+            }}
+          />
+        
+          {/* Main Image */}
           <img
             src={coupleImage}
             alt="couple"
@@ -178,23 +191,42 @@ export default function App() {
               width: "100%",
               aspectRatio: "3 / 4",
               objectFit: "cover",
-              borderRadius: "36px",
-              boxShadow: "0 30px 80px rgba(0,0,0,0.32)",
-              border: "1px solid rgba(255,255,255,0.22)",
+              borderRadius: "42px",
               position: "relative",
               zIndex: 2,
+              boxShadow: "0 24px 80px rgba(0,0,0,0.22)",
+              filter: "saturate(0.96) contrast(1.02)",
             }}
           />
-
-          {/* Soft Overlay */}
+        
+          {/* Edge Fade */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              borderRadius: "36px",
-              background:
-                "linear-gradient(to top, rgba(0,0,0,0.18), transparent 45%)",
+              borderRadius: "42px",
+              background: `
+                linear-gradient(
+                  to top,
+                  rgba(0,0,0,0.18),
+                  transparent 36%
+                )
+              `,
               zIndex: 3,
+              mixBlendMode: "soft-light",
+            }}
+          />
+        
+          {/* Outer Fade */}
+          <div
+            style={{
+              position: "absolute",
+              inset: "-2px",
+              borderRadius: "44px",
+              background:
+                "radial-gradient(circle at center, transparent 58%, rgba(245,245,244,0.75) 100%)",
+              zIndex: 4,
+              pointerEvents: "none",
             }}
           />
         </motion.div>
