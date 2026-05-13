@@ -588,6 +588,118 @@ export default function App() {
             </div>
           </div>
         </div>
+        {/* Course */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1.6,
+            ease: "easeOut",
+          }}
+          viewport={{ once: true }}
+          style={{
+            marginTop: "40px",
+            background: "rgba(255,255,255,0.78)",
+            backdropFilter: "blur(14px)",
+            borderRadius: "32px",
+            padding: "56px 32px",
+            boxShadow: "0 10px 40px rgba(0,0,0,0.06)",
+          }}
+        >
+          <h2
+            style={{
+              textAlign: "center",
+              fontSize: "clamp(40px, 6vw, 56px)",
+              color: "#b08a47",
+              letterSpacing: "0.08em",
+              fontWeight: 400,
+              marginBottom: "48px",
+            }}
+          >
+            Course
+          </h2>
+        
+          <div
+            style={{
+              maxWidth: "760px",
+              margin: "0 auto",
+              display: "flex",
+              flexDirection: "column",
+              gap: "32px",
+              color: "#44403c",
+            }}
+          >
+            {[
+              {
+                title: "AMUSE",
+                body: [
+                  "紅ずわい蟹とカリフラワー",
+                  "vollonブリオッシュ国産ハモンセラーノ",
+                ],
+              },
+              {
+                title: "APPETIZER",
+                body: ["サラダ・ド・オット"],
+              },
+              {
+                title: "PASTA",
+                body: ["雲丹クリームタリアテッレ"],
+              },
+              {
+                title: "MAIN DISH",
+                body: [
+                  "① 渥美半島うまみ豚炭火焼",
+                  "② 厳選黒毛和牛炭火焼 (+1500)",
+                  "※黒毛和牛は前日までの予約制にて承ります。",
+                ],
+              },
+              {
+                title: "FIRST DESSERT",
+                body: ["クアトロフォルマッジョ"],
+              },
+              {
+                title: "SECOND DESSERT",
+                body: [
+                  "① ティラミス",
+                  "② 紅玉とふじりんごのアップルパイ",
+                ],
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                style={{
+                  borderBottom: "1px solid rgba(176,138,71,0.14)",
+                  paddingBottom: "24px",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#b08a47",
+                    letterSpacing: "0.18em",
+                    fontSize: "13px",
+                    marginBottom: "14px",
+                  }}
+                >
+                  {item.title}
+                </div>
+        
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                    lineHeight: 1.9,
+                    fontSize: "clamp(15px, 2vw, 18px)",
+                  }}
+                >
+                  {item.body.map((text) => (
+                    <div key={text}>{text}</div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </motion.section>
     </main>
   )
