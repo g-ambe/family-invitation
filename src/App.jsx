@@ -649,8 +649,9 @@ export default function App() {
                 title: "MAIN DISH",
                 body: [
                   "① 渥美半島うまみ豚炭火焼",
-                  "② 厳選黒毛和牛炭火焼 (+1500)",
-                  "※黒毛和牛は前日までの予約制にて承ります。",
+                  "　　　or",      
+                  "② 厳選黒毛和牛炭火焼",
+                  "※黒毛和牛は前日までの予約となるので、事前にお知らせください。",
                 ],
               },
               {
@@ -661,6 +662,7 @@ export default function App() {
                 title: "SECOND DESSERT",
                 body: [
                   "① ティラミス",
+                  "　　　or",                  
                   "② 紅玉とふじりんごのアップルパイ",
                 ],
               },
