@@ -1,4 +1,5 @@
 import heroImage from "./assets/images/hero.jpg"
+import { motion } from "framer-motion"
 
 export default function App() {
   return (
@@ -11,7 +12,10 @@ export default function App() {
       }}
     >
       {/* Hero */}
-      <section
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2 }}
         style={{
           minHeight: "100vh",
           display: "flex",
@@ -95,7 +99,7 @@ export default function App() {
             <p>TEL：052-222-0020</p>
           </div>
         </div>
-      </section>
+      </motion.section>
     </main>
   )
 }
