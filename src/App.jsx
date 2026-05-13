@@ -145,27 +145,59 @@ export default function App() {
           {timeLeft.minutes} 分
         </div>
 
-        {/* Couple Image */}
-        <div
+        {/* Couple Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96, y: 24 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1.4 }}
+          viewport={{ once: true }}
           style={{
-            marginTop: "48px",
+            marginTop: "56px",
             zIndex: 2,
             position: "relative",
+            width: "min(340px, 82vw)",
           }}
         >
+          {/* Glow */}
+          <div
+            style={{
+              position: "absolute",
+              inset: "-20px",
+              background:
+                "radial-gradient(rgba(255,255,255,0.22), transparent 70%)",
+              filter: "blur(28px)",
+              zIndex: 1,
+            }}
+          />
+
+          {/* Image */}
           <img
             src={coupleImage}
             alt="couple"
             style={{
-              width: "min(340px, 80vw)",
-              height: "420px",
+              width: "100%",
+              aspectRatio: "3 / 4",
               objectFit: "cover",
-              borderRadius: "28px",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.25)",
-              border: "1px solid rgba(255,255,255,0.25)",
+              borderRadius: "36px",
+              boxShadow: "0 30px 80px rgba(0,0,0,0.32)",
+              border: "1px solid rgba(255,255,255,0.22)",
+              position: "relative",
+              zIndex: 2,
             }}
           />
-        </div>
+
+          {/* Soft Overlay */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "36px",
+              background:
+                "linear-gradient(to top, rgba(0,0,0,0.18), transparent 45%)",
+              zIndex: 3,
+            }}
+          />
+        </motion.div>
       </motion.section>
 
       {/* Information */}
