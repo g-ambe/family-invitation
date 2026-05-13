@@ -124,7 +124,7 @@ useEffect(() => {
           inset: 0,
           overflow: "hidden",
           pointerEvents: "none",
-          zIndex: 1,
+          zIndex: 2,
         }}
       >
         {[...Array(8)].map((_, i) => (
@@ -137,7 +137,7 @@ useEffect(() => {
                 `${i * 12 + tilt * 0.4}%`,
               ],
               rotate: [0, i % 2 === 0 ? 12 : -12],
-              opacity: [0, 0.22, 0.18, 0],
+              opacity: [0, 0.55, 0.42, 0],
             }}
             transition={{
               duration: 18 + i * 2,
@@ -149,11 +149,13 @@ useEffect(() => {
               position: "absolute",
               top: "-10%",
               left: `${i * 12}%`,
-              width: `${18 + i * 2}px`,
-              height: `${28 + i * 3}px`,
+              width: `${28 + i * 4}px`,
+              height: `${42 + i * 5}px`,
               borderRadius: "50% 0 50% 0",
+              boxShadow: "0 4px 18px rgba(126,169,116,0.18)",
+              transform: "rotate(45deg)",
               background:
-                "linear-gradient(135deg, rgba(126,169,116,0.22), rgba(164,194,150,0.08))",
+                "linear-gradient(135deg, rgba(156,196,145,0.62), rgba(202,224,190,0.28))",
               filter: "blur(0.2px)",
               backdropFilter: "blur(2px)",
             }}
@@ -170,6 +172,8 @@ useEffect(() => {
             flexDirection: "column",
             alignItems: "center",
             textAlign: "center",
+            position: "relative",
+            zIndex: 3,
           }}
         >
           <p
