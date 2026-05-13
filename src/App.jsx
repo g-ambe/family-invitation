@@ -14,22 +14,42 @@ export default function App() {
     minutes: 0,
   })
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date()
-      const difference = targetDate - now
+  const [tilt, setTilt] = useState(0)
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-        })
-      }
-    }, 1000)
+useEffect(() => {
+  const timer = setInterval(() => {
+    const now = new Date()
+    const difference = targetDate - now
 
-    return () => clearInterval(timer)
-  }, [])
+    if (difference > 0) {
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+      })
+    }
+  }, 1000)
+
+  const handleOrientation = (event) => {
+    if (event.gamma) {
+      setTilt(event.gamma * 0.6)
+    }
+  }
+
+  window.addEventListener(
+    "deviceorientation",
+    handleOrientation
+  )
+
+  return () => {
+    clearInterval(timer)
+
+    window.removeEventListener(
+      "deviceorientation",
+      handleOrientation
+    )
+  }
+}, [])
 
   return (
     <main
@@ -96,6 +116,50 @@ export default function App() {
             pointerEvents: "none",
           }}
         />
+        
+      {/* Floating Leaves */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      >
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              y: ["-10vh", "110vh"],
+              x: [
+                `${i * 12}%`,
+                `${i * 12 + tilt * 0.4}%`,
+              ],
+              rotate: [0, i % 2 === 0 ? 12 : -12],
+              opacity: [0, 0.22, 0.18, 0],
+            }}
+            transition={{
+              duration: 18 + i * 2,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 2,
+            }}
+            style={{
+              position: "absolute",
+              top: "-10%",
+              left: `${i * 12}%`,
+              width: `${18 + i * 2}px`,
+              height: `${28 + i * 3}px`,
+              borderRadius: "50% 0 50% 0",
+              background:
+                "linear-gradient(135deg, rgba(126,169,116,0.22), rgba(164,194,150,0.08))",
+              filter: "blur(0.2px)",
+              backdropFilter: "blur(2px)",
+            }}
+          />
+        ))}
+      </div>
         
         {/* Hero Content */}
         <div
