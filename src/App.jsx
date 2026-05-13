@@ -60,7 +60,7 @@ export default function App() {
         >
           ご縁を結ぶ、穏やかなひととき
         </p>
-      </section>
+      </motion.section>
 
       {/* Info */}
       <section
@@ -99,7 +99,7 @@ export default function App() {
             <p>TEL：052-222-0020</p>
           </div>
         </div>
-      </motion.section>
+      </section>
     </main>
   )
 }
