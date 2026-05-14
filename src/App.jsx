@@ -142,10 +142,10 @@ useEffect(() => {
         >
           <style>
             {`
-              @keyframes leafFall {
+              @keyframes leafFloat {
                 0% {
                   transform:
-                    translate3d(0px, -12vh, 0)
+                    translate3d(0px, -14vh, 0)
                     rotate(0deg);
         
                   opacity: 0;
@@ -155,34 +155,28 @@ useEffect(() => {
                   opacity: 0.42;
                 }
         
-                20% {
+                25% {
                   transform:
-                    translate3d(18px, 10vh, 0)
-                    rotate(50deg);
+                    translate3d(26px, 14vh, 0)
+                    rotate(70deg);
                 }
         
-                40% {
+                50% {
                   transform:
-                    translate3d(-22px, 28vh, 0)
-                    rotate(120deg);
+                    translate3d(-20px, 36vh, 0)
+                    rotate(140deg);
                 }
         
-                60% {
+                75% {
                   transform:
-                    translate3d(16px, 48vh, 0)
-                    rotate(180deg);
-                }
-        
-                80% {
-                  transform:
-                    translate3d(-14px, 66vh, 0)
-                    rotate(240deg);
+                    translate3d(18px, 58vh, 0)
+                    rotate(220deg);
                 }
         
                 100% {
                   transform:
-                    translate3d(10px, 84vh, 0)
-                    rotate(320deg);
+                    translate3d(-10px, 82vh, 0)
+                    rotate(300deg);
         
                   opacity: 0;
                 }
@@ -195,46 +189,39 @@ useEffect(() => {
               key={leaf.id}
               style={{
                 position: "absolute",
-                top: 0,
+                left: `
+                  calc(${leaf.left}% + ${tilt * 0.12}px)
+                `,
+                top: "-14vh",
+        
+                width: `${leaf.size}px`,
+                height: `${leaf.size * 1.6}px`,
+        
+                borderRadius: "50% 0 50% 0",
         
                 /*
-                  傾き反映
+                  葉色変更ここ
                 */
-                left: `
-                  calc(
-                    ${leaf.left}% + ${tilt * 0.12}px
-                  )
+                background:
+                  "linear-gradient(135deg, rgba(72,122,66,0.92), rgba(154,194,145,0.42))",
+        
+                boxShadow:
+                  "0 6px 18px rgba(72,122,66,0.18)",
+        
+                filter: "blur(0.2px)",
+        
+                animation: `
+                  leafFloat
+                  ${leaf.duration}s
+                  linear
+                  infinite
                 `,
+        
+                animationDelay: `${leaf.delay}s`,
+        
+                willChange: "transform, opacity",
               }}
-            >
-              <div
-                style={{
-                  width: `${leaf.size}px`,
-                  height: `${leaf.size * 1.6}px`,
-                  borderRadius: "50% 0 50% 0",
-        
-                  /*
-                    葉っぱ色
-                  */
-                  background:
-                    "linear-gradient(135deg, rgba(72,122,66,0.92), rgba(154,194,145,0.42))",
-        
-                  boxShadow:
-                    "0 6px 18px rgba(72,122,66,0.18)",
-        
-                  filter: "blur(0.2px)",
-        
-                  animation: `
-                    leafFall
-                    ${leaf.duration}s
-                    linear
-                    infinite
-                  `,
-        
-                  animationDelay: `${leaf.delay}s`,
-                }}
-              />
-            </div>
+            />
           ))}
         </div>
         
