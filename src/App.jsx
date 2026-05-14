@@ -129,64 +129,47 @@ useEffect(() => {
         >
           <style>
             {`
+              @keyframes leafDrift {
+                0% {
+                  transform: translateX(0px);
+                }
+        
+                25% {
+                  transform: translateX(28px);
+                }
+        
+                50% {
+                  transform: translateX(-18px);
+                }
+        
+                75% {
+                  transform: translateX(22px);
+                }
+        
+                100% {
+                  transform: translateX(0px);
+                }
+              }
+        
               @keyframes leafFall {
                 0% {
                   transform:
-                    translate3d(0px, -12vh, 0)
+                    translateY(-15vh)
                     rotate(0deg);
+        
                   opacity: 0;
                 }
         
                 10% {
-                  opacity: 0.45;
-                }
-        
-                25% {
-                  transform:
-                    translate3d(40px, 18vh, 0)
-                    rotate(60deg);
-                }
-        
-                50% {
-                  transform:
-                    translate3d(-30px, 42vh, 0)
-                    rotate(120deg);
-                }
-        
-                75% {
-                  transform:
-                    translate3d(35px, 66vh, 0)
-                    rotate(200deg);
+                  opacity: 0.42;
                 }
         
                 100% {
                   transform:
-                    translate3d(-20px, 84vh, 0)
-                    rotate(280deg);
+                    translateY(88vh)
+                    rotate(320deg);
         
                   opacity: 0;
-                }
-              }
-        
-              @keyframes leafSwing {
-                0% {
-                  margin-left: 0px;
-                }
-        
-                25% {
-                  margin-left: 18px;
-                }
-        
-                50% {
-                  margin-left: -12px;
-                }
-        
-                75% {
-                  margin-left: 16px;
-                }
-        
-                100% {
-                  margin-left: 0px;
                 }
               }
             `}
@@ -195,7 +178,7 @@ useEffect(() => {
           {[...Array(6)].map((_, i) => {
             const randomLeft = Math.random() * 100
             const randomDelay = i * 5
-            const randomDuration = 28 + Math.random() * 10
+            const randomDuration = 32 + Math.random() * 12
             const randomSize = 12 + Math.random() * 8
         
             return (
@@ -205,12 +188,17 @@ useEffect(() => {
                   position: "absolute",
                   top: "-15%",
                   left: `${randomLeft}%`,
+        
+                  /*
+                    円弧 movement
+                  */
                   animation: `
-                    leafSwing
-                    ${12 + i * 2}s
+                    leafDrift
+                    ${10 + i * 2}s
                     ease-in-out
                     infinite
                   `,
+        
                   transform: `
                     translateX(${tilt * 1.2}px)
                   `,
@@ -223,16 +211,19 @@ useEffect(() => {
                     borderRadius: "50% 0 50% 0",
         
                     /*
-                      ↓↓↓ 葉っぱ色ここ ↓↓↓
+                      葉色
                     */
                     background:
                       "linear-gradient(135deg, rgba(72,122,66,0.92), rgba(154,194,145,0.42))",
         
                     boxShadow:
-                      "0 6px 18px rgba(72,122,66,0.22)",
+                      "0 6px 18px rgba(72,122,66,0.18)",
         
                     filter: "blur(0.2px)",
         
+                    /*
+                      落下 animation
+                    */
                     animation: `
                       leafFall
                       ${randomDuration}s
