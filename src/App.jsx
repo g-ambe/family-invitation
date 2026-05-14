@@ -128,26 +128,19 @@ useEffect(() => {
           }}
         >
           {[...Array(5)].map((_, i) => {
-            const randomDuration = 42 + Math.random() * 16
+            const randomDuration = 42 + Math.random() * 18
             const randomLeft = Math.random() * 100
-            const randomRotate = Math.random() * 8 - 4
-            const randomDrift = Math.random() * 40 - 20
+            const randomRotate = Math.random() * 10 - 5
         
             return (
               <motion.div
                 key={i}
                 initial={{
-                  y: "-14vh",
-                  x: 0,
+                  top: "-15%",
                   opacity: 0,
                 }}
                 animate={{
-                  y: "115vh",
-                  x: [
-                    0,
-                    randomDrift * 0.3,
-                    randomDrift,
-                  ],
+                  top: "110%",
                   opacity: [0, 0.24, 0.24, 0.08],
                   rotate: [
                     randomRotate,
@@ -156,14 +149,27 @@ useEffect(() => {
                   ],
                 }}
                 transition={{
-                  duration: randomDuration,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: i * 8,
+                  top: {
+                    duration: randomDuration,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: i * 10,
+                  },
+                  opacity: {
+                    duration: randomDuration,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: i * 10,
+                  },
+                  rotate: {
+                    duration: randomDuration,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 10,
+                  },
                 }}
                 style={{
                   position: "absolute",
-                  top: 0,
                   left: `${randomLeft}%`,
                   width: `${12 + i * 2}px`,
                   height: `${18 + i * 3}px`,
