@@ -131,66 +131,119 @@ useEffect(() => {
             {`
               @keyframes leafFall {
                 0% {
-                  transform: translateY(-12vh) translateX(0px) rotate(45deg);
+                  transform:
+                    translate3d(0px, -12vh, 0)
+                    rotate(0deg);
                   opacity: 0;
                 }
         
                 10% {
-                  opacity: 0.38;
+                  opacity: 0.45;
                 }
         
-                70% {
-                  opacity: 0.30;
+                25% {
+                  transform:
+                    translate3d(40px, 18vh, 0)
+                    rotate(60deg);
+                }
+        
+                50% {
+                  transform:
+                    translate3d(-30px, 42vh, 0)
+                    rotate(120deg);
+                }
+        
+                75% {
+                  transform:
+                    translate3d(35px, 66vh, 0)
+                    rotate(200deg);
                 }
         
                 100% {
-                  transform: translateY(82vh) translateX(40px) rotate(60deg);
+                  transform:
+                    translate3d(-20px, 84vh, 0)
+                    rotate(280deg);
+        
                   opacity: 0;
+                }
+              }
+        
+              @keyframes leafSwing {
+                0% {
+                  margin-left: 0px;
+                }
+        
+                25% {
+                  margin-left: 18px;
+                }
+        
+                50% {
+                  margin-left: -12px;
+                }
+        
+                75% {
+                  margin-left: 16px;
+                }
+        
+                100% {
+                  margin-left: 0px;
                 }
               }
             `}
           </style>
         
-          {[...Array(5)].map((_, i) => {
+          {[...Array(6)].map((_, i) => {
             const randomLeft = Math.random() * 100
-            const randomDelay = i * 6
-            const randomDuration = 24 + Math.random() * 12
-            const randomSize = 14 + Math.random() * 8
+            const randomDelay = i * 5
+            const randomDuration = 28 + Math.random() * 10
+            const randomSize = 12 + Math.random() * 8
         
             return (
               <div
                 key={i}
                 style={{
                   position: "absolute",
-                  top: "-10%",
+                  top: "-15%",
                   left: `${randomLeft}%`,
-                  width: `${randomSize}px`,
-                  height: `${randomSize * 1.5}px`,
-                  borderRadius: "50% 0 50% 0",
-        
-                  /*
-                    ↓↓↓ 葉っぱの色ここ ↓↓↓
-                  */
-                  background:
-                    "linear-gradient(135deg, rgba(96,140,88,0.78), rgba(170,205,160,0.32))",
-        
-                  boxShadow:
-                    "0 4px 12px rgba(96,140,88,0.18)",
-        
-                  filter: "blur(0.3px)",
-        
+                  animation: `
+                    leafSwing
+                    ${12 + i * 2}s
+                    ease-in-out
+                    infinite
+                  `,
                   transform: `
                     translateX(${tilt * 1.2}px)
-                    rotate(45deg)
                   `,
-        
-                  animationName: "leafFall",
-                  animationDuration: `${randomDuration}s`,
-                  animationTimingFunction: "linear",
-                  animationIterationCount: "infinite",
-                  animationDelay: `${randomDelay}s`,
                 }}
-              />
+              >
+                <div
+                  style={{
+                    width: `${randomSize}px`,
+                    height: `${randomSize * 1.6}px`,
+                    borderRadius: "50% 0 50% 0",
+        
+                    /*
+                      ↓↓↓ 葉っぱ色ここ ↓↓↓
+                    */
+                    background:
+                      "linear-gradient(135deg, rgba(72,122,66,0.92), rgba(154,194,145,0.42))",
+        
+                    boxShadow:
+                      "0 6px 18px rgba(72,122,66,0.22)",
+        
+                    filter: "blur(0.2px)",
+        
+                    animation: `
+                      leafFall
+                      ${randomDuration}s
+                      linear
+                      infinite
+                    `,
+        
+                    animationDelay: `${randomDelay}s`,
+                  }}
+                />
+              </div>
             )
           })}
         </div>
