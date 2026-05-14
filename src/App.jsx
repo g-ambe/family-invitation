@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+//import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { motion } from "framer-motion"
 
 import heroImage from "./assets/images/hero.jpg"
@@ -15,6 +16,18 @@ export default function App() {
   })
 
   const [tilt, setTilt] = useState(0)
+
+  const leaves = useMemo(() => {
+  return [...Array(6)].map((_, i) => ({
+    id: i,
+    left: Math.random() * 100,
+    duration: 28 + Math.random() * 10,
+    delay: i * 6,
+    size: 12 + Math.random() * 8,
+    drift: 18 + Math.random() * 26,
+  }))
+}, [])
+  
 
 useEffect(() => {
   const timer = setInterval(() => {
@@ -117,127 +130,102 @@ useEffect(() => {
           }}
         />
         
-        {/* Floating Leaves */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            overflow: "hidden",
-            pointerEvents: "none",
-            zIndex: 2,
-          }}
-        >
-          <style>
-            {`
-              @keyframes leafDrift {
-                0% {
-                  transform: translateX(0px);
-                }
-        
-                25% {
-                  transform: translateX(28px);
-                }
-        
-                50% {
-                  transform: translateX(-18px);
-                }
-        
-                75% {
-                  transform: translateX(22px);
-                }
-        
-                100% {
-                  transform: translateX(0px);
-                }
+       {/* Floating Leaves */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+          zIndex: 2,
+        }}
+      >
+        <style>
+          {`
+            @keyframes leafFall {
+              0% {
+                transform:
+                  translate3d(0px, -15vh, 0)
+                  rotate(0deg);
+      
+                opacity: 0;
               }
-        
-              @keyframes leafFall {
-                0% {
-                  transform:
-                    translateY(-15vh)
-                    rotate(0deg);
-        
-                  opacity: 0;
-                }
-        
-                10% {
-                  opacity: 0.42;
-                }
-        
-                100% {
-                  transform:
-                    translateY(88vh)
-                    rotate(320deg);
-        
-                  opacity: 0;
-                }
+      
+              8% {
+                opacity: 0.42;
               }
-            `}
-          </style>
-        
-          {[...Array(6)].map((_, i) => {
-            const randomLeft = Math.random() * 100
-            const randomDelay = i * 5
-            const randomDuration = 32 + Math.random() * 12
-            const randomSize = 12 + Math.random() * 8
-        
-            return (
-              <div
-                key={i}
-                style={{
-                  position: "absolute",
-                  top: "-15%",
-                  left: `${randomLeft}%`,
-        
-                  /*
-                    円弧 movement
-                  */
-                  animation: `
-                    leafDrift
-                    ${10 + i * 2}s
-                    ease-in-out
-                    infinite
-                  `,
-        
-                  transform: `
-                    translateX(${tilt * 1.2}px)
-                  `,
-                }}
-              >
-                <div
-                  style={{
-                    width: `${randomSize}px`,
-                    height: `${randomSize * 1.6}px`,
-                    borderRadius: "50% 0 50% 0",
-        
-                    /*
-                      葉色
-                    */
-                    background:
-                      "linear-gradient(135deg, rgba(72,122,66,0.92), rgba(154,194,145,0.42))",
-        
-                    boxShadow:
-                      "0 6px 18px rgba(72,122,66,0.18)",
-        
-                    filter: "blur(0.2px)",
-        
-                    /*
-                      落下 animation
-                    */
-                    animation: `
-                      leafFall
-                      ${randomDuration}s
-                      linear
-                      infinite
-                    `,
-        
-                    animationDelay: `${randomDelay}s`,
-                  }}
-                />
-              </div>
-            )
-          })}
-        </div>
+      
+              25% {
+                transform:
+                  translate3d(22px, 12vh, 0)
+                  rotate(70deg);
+              }
+      
+              50% {
+                transform:
+                  translate3d(-18px, 34vh, 0)
+                  rotate(140deg);
+              }
+      
+              75% {
+                transform:
+                  translate3d(14px, 58vh, 0)
+                  rotate(220deg);
+              }
+      
+              100% {
+                transform:
+                  translate3d(-10px, 82vh, 0)
+                  rotate(300deg);
+      
+                opacity: 0;
+              }
+            }
+          `}
+        </style>
+      
+        {leaves.map((leaf) => (
+          <div
+            key={leaf.id}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: `${leaf.left}%`,
+              transform: `
+                translateX(${tilt * 1.1}px)
+              `,
+            }}
+          >
+            <div
+              style={{
+                width: `${leaf.size}px`,
+                height: `${leaf.size * 1.6}px`,
+                borderRadius: "50% 0 50% 0",
+      
+                /*
+                  葉色ここ
+                */
+                background:
+                  "linear-gradient(135deg, rgba(72,122,66,0.92), rgba(154,194,145,0.42))",
+      
+                boxShadow:
+                  "0 6px 18px rgba(72,122,66,0.18)",
+      
+                filter: "blur(0.2px)",
+      
+                animation: `
+                  leafFall
+                  ${leaf.duration}s
+                  linear
+                  infinite
+                `,
+      
+                animationDelay: `${leaf.delay}s`,
+              }}
+            />
+          </div>
+        ))}
+      </div>
         
         {/* Hero Content */}
         <div
