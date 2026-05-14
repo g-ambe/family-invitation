@@ -127,62 +127,68 @@ useEffect(() => {
             zIndex: 2,
           }}
         >
+          <style>
+            {`
+              @keyframes leafFall {
+                0% {
+                  transform: translateY(-12vh) translateX(0px) rotate(45deg);
+                  opacity: 0;
+                }
+        
+                10% {
+                  opacity: 0.38;
+                }
+        
+                70% {
+                  opacity: 0.30;
+                }
+        
+                100% {
+                  transform: translateY(82vh) translateX(40px) rotate(60deg);
+                  opacity: 0;
+                }
+              }
+            `}
+          </style>
+        
           {[...Array(5)].map((_, i) => {
-            const randomDuration = 42 + Math.random() * 18
             const randomLeft = Math.random() * 100
-            const randomRotate = Math.random() * 10 - 5
+            const randomDelay = i * 6
+            const randomDuration = 24 + Math.random() * 12
+            const randomSize = 14 + Math.random() * 8
         
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={{
-                  top: "-15%",
-                  opacity: 0,
-                }}
-                animate={{
-                  top: "110%",
-                  opacity: [0, 0.24, 0.24, 0.08],
-                  rotate: [
-                    randomRotate,
-                    randomRotate + 3,
-                    randomRotate - 2,
-                  ],
-                }}
-                transition={{
-                  top: {
-                    duration: randomDuration,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: i * 10,
-                  },
-                  opacity: {
-                    duration: randomDuration,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: i * 10,
-                  },
-                  rotate: {
-                    duration: randomDuration,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 10,
-                  },
-                }}
                 style={{
                   position: "absolute",
+                  top: "-10%",
                   left: `${randomLeft}%`,
-                  width: `${12 + i * 2}px`,
-                  height: `${18 + i * 3}px`,
+                  width: `${randomSize}px`,
+                  height: `${randomSize * 1.5}px`,
                   borderRadius: "50% 0 50% 0",
+        
+                  /*
+                    ↓↓↓ 葉っぱの色ここ ↓↓↓
+                  */
                   background:
-                    "linear-gradient(135deg, rgba(156,196,145,0.52), rgba(202,224,190,0.16))",
+                    "linear-gradient(135deg, rgba(96,140,88,0.78), rgba(170,205,160,0.32))",
+        
                   boxShadow:
-                    "0 4px 10px rgba(126,169,116,0.10)",
-                  filter: "blur(0.4px)",
+                    "0 4px 12px rgba(96,140,88,0.18)",
+        
+                  filter: "blur(0.3px)",
+        
                   transform: `
                     translateX(${tilt * 1.2}px)
                     rotate(45deg)
                   `,
+        
+                  animationName: "leafFall",
+                  animationDuration: `${randomDuration}s`,
+                  animationTimingFunction: "linear",
+                  animationIterationCount: "infinite",
+                  animationDelay: `${randomDelay}s`,
                 }}
               />
             )
